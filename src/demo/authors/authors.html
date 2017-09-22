@@ -1,7 +1,8 @@
 <div>
-    <input ng-model="filter"></input>
+    <input ng-model="$ctrl.filter" ng-change="$ctrl.searchAuthor()" ng-model-options="{ debounce: blur }"></input>
+     <!-- " -->
     <br/>
-    <h3>Authors</h3>
+    <h3>Authors{{ $ctrl.filter ? ' with ' + $ctrl.filter : '' }}</h3>
     <p><code>$length={{ $ctrl.authors.$length }}. $is_loading={{ $ctrl.authors.$is_loading }}. $source={{ $ctrl.authors.$source }}.</code></p>
     <table class="table table-striped">
         <thead>
@@ -15,7 +16,7 @@
         <tr ng-repeat="author in $ctrl.authors track by $index">
             <td>{{ author.id }}</td>
             <td>
-                <a ui-sref="author({ authorId: author.id })">{{ author.attributes.name  }}</a>
+                <a ui-sref="author({ authorId: author.id })">{{ author.attributes.name }}</a>
             </td>
             <td>{{ author.attributes.date_of_birth | date }}</td>
             <td>{{ author.attributes.date_of_death | date }}</td>
