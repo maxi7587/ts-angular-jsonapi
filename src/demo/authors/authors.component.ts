@@ -28,7 +28,6 @@ class AuthorsController implements ng.IController {
     }
 
     public searchAuthor() {
-        this.authors;
     }
 
     public delete(author: Jsonapi.IResource) {

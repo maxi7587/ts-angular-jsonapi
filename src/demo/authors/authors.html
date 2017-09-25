@@ -1,5 +1,5 @@
 <div>
-    <input ng-model="$ctrl.filter" ng-change="$ctrl.searchAuthor()" ng-model-options="{ debounce: blur }"></input>
+    <input ng-model="$ctrl.filter" ng-change="$ctrl.searchAuthor()" ng-model-options="{ debounce: 500 }"></input>
      <!-- " -->
     <br/>
     <h3>Authors{{ $ctrl.filter ? ' with ' + $ctrl.filter : '' }}</h3>
