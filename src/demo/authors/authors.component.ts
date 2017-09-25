@@ -9,8 +9,11 @@ class AuthorsController implements ng.IController {
         protected JsonapiCore: Jsonapi.ICore,
         protected AuthorsService: Jsonapi.IService
     ) {
-        this.authors = AuthorsService.all(
+        protected this.authors = AuthorsService.all(
             // { include: ['books', 'photos'] },
+            {
+                remotefilter: { name: this.filter }
+            },
             success => {
                 console.log('success authors controll', this.authors);
             },
@@ -25,18 +28,7 @@ class AuthorsController implements ng.IController {
     }
 
     public searchAuthor() {
-        this.authors = this.AuthorsService.all(
-            // { include: ['books', 'photos'] },
-            {
-                remotefilter: { name: this.filter }
-            },
-            success => {
-                console.log('success authors controll', this.authors);
-            },
-            error => {
-                console.log('error authors controll', error);
-            }
-        );
+        this.authors;
     }
 
     public delete(author: Jsonapi.IResource) {
